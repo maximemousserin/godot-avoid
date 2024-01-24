@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://m5do5vtbqcaf"]
+
+[ext_resource type="PackedScene" uid="uid://cnuu815sphovg" path="res://scenes/barbarian.tscn" id="2_lj4fy"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="2_xjlqe"]
+[ext_resource type="Script" path="res://scripts/CharacterSkin.gd" id="3_vekly"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3lgjq"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("2_xjlqe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 1.2, 0)
+shape = SubResource("CapsuleShape3D_3lgjq")
+
+[node name="CharacterRotationRoot" type="Node3D" parent="."]
+
+[node name="CharacterSkin" parent="CharacterRotationRoot" instance=ExtResource("2_lj4fy")]
+script = ExtResource("3_vekly")
